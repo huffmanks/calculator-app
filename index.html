@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Frontend Mentor | Calculator app</title>
+    </head>
+    <body>
+        <div class="container">
+            <section class="header">
+                <h1>calc</h1>
+                <div class="toggle">
+                    <div class="theme">THEME</div>
+                    <div class="toggle-options">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+
+                        <input type="checkbox" name="toggler" id="toggler" class="toggler" />
+                        <label id="toggle-switch" class="toggle-switch" for="toggler"> <div class="toggle-switch-after"></div></label>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <input id="output" class="output" type="text" />
+            </section>
+            <section class="keypad">
+                <div class="key">7</div>
+                <div class="key">8</div>
+                <div class="key">9</div>
+                <div class="key key-secondary">DEL</div>
+                <div class="key">4</div>
+                <div class="key">5</div>
+                <div class="key">6</div>
+                <div class="key">+</div>
+                <div class="key">1</div>
+                <div class="key">2</div>
+                <div class="key">3</div>
+                <div class="key">-</div>
+                <div class="key">.</div>
+                <div class="key">0</div>
+                <div class="key">/</div>
+                <div class="key">x</div>
+                <div class="key key-secondary span-2">RESET</div>
+                <div class="key key-equals span-2">=</div>
+            </section>
+        </div>
+
+        <div class="attribution">
+            Challenge by
+            <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by Kevin Huffman.
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
