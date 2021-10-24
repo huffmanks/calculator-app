@@ -96,18 +96,6 @@ h1 {
     font-size: 28px;
 }
 
-.shortcuts-link a {
-    display: inline-block;
-    padding: 7px 7px 5px;
-    background-color: var(--theme-key-equals);
-    border-radius: 5px;
-    color: var(--color-white);
-    font-size: 10px;
-    line-height: 1;
-    text-decoration: none;
-    letter-spacing: 1px;
-}
-
 .modal-shortcuts {
     position: fixed;
     top: 0;
@@ -179,6 +167,17 @@ h1 {
     line-height: 1.5;
     box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
     background-color: #f7f7f7;
+}
+
+.shortcuts-link a {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 10px 10px 7px;
+    background-color: var(--theme-key-equals);
+    border-radius: 5px;
+    color: var(--color-white);
+    text-decoration: none;
+    letter-spacing: 1px;
 }
 
 .toggle {
@@ -360,6 +359,12 @@ h1 {
 }
 
 @media (max-width: 500px) {
+    /* Header */
+    h1 {
+        font-size: 32px;
+    }
+
+    /* Modal */
     .modal-body {
         padding: 2rem 1rem;
     }
@@ -378,6 +383,42 @@ h1 {
         line-height: 1;
     }
 
+    .shortcuts-link {
+        width: 90%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .shortcuts-link a {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Theme toggle */
+    .toggle {
+        flex-direction: column;
+    }
+
+    .theme {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .toggle-switch {
+        display: none;
+    }
+
+    .toggle-options > span {
+        display: inline-block;
+        padding: 10px 30px;
+        background-color: var(--color-white);
+        color: var(--theme-key-equals);
+        font-size: 13px;
+        border: 2px solid var(--theme-key-equals);
+        border-radius: 10px;
+    }
+
+    /* Keypad */
     .key {
         font-size: 20px;
     }
