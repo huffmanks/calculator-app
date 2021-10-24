@@ -12,6 +12,9 @@
         <div class="container">
             <section class="header">
                 <h1>calc</h1>
+                <div class="shortcuts-link">
+                    <a role="button" href="#modal-shortcuts">SHORTCUTS</a>
+                </div>
                 <div class="toggle">
                     <div class="theme">THEME</div>
                     <div class="toggle-options">
@@ -31,25 +34,52 @@
                 </div>
             </section>
             <section class="keypad">
-                <div data-number class="key">7</div>
-                <div data-number class="key">8</div>
-                <div data-number class="key">9</div>
-                <div data-delete class="key key-secondary">DEL</div>
-                <div data-number class="key">4</div>
-                <div data-number class="key">5</div>
-                <div data-number class="key">6</div>
-                <div data-operation class="key">+</div>
-                <div data-number class="key">1</div>
-                <div data-number class="key">2</div>
-                <div data-number class="key">3</div>
-                <div data-operation class="key">-</div>
-                <div data-number class="key">.</div>
-                <div data-number class="key">0</div>
-                <div data-operation class="key">/</div>
-                <div data-operation class="key">x</div>
-                <div data-all-clear class="key key-secondary span-2">RESET</div>
-                <div data-equals class="key key-equals span-2">=</div>
+                <button data-number class="key">7</button>
+                <button data-number class="key">8</button>
+                <button data-number class="key">9</button>
+                <button data-delete class="key key-secondary">DEL</button>
+                <button data-number class="key">4</button>
+                <button data-number class="key">5</button>
+                <button data-number class="key">6</button>
+                <button data-operation class="key">+</button>
+                <button data-number class="key">1</button>
+                <button data-number class="key">2</button>
+                <button data-number class="key">3</button>
+                <button data-operation class="key">-</button>
+                <button data-number class="key">.</button>
+                <button data-number class="key">0</button>
+                <button data-operation class="key">/</button>
+                <button data-operation class="key">x</button>
+                <button data-all-clear class="key key-secondary span-2">RESET</button>
+                <button data-equals class="key key-equals span-2">=</button>
             </section>
+        </div>
+
+        <div id="modal-shortcuts" class="modal-shortcuts">
+            <div class="modal-body">
+                <div class="close"><a role="button" href="#">&times;</a></div>
+                <h2>SHORTCUTS</h2>
+                <div class="shortcut">
+                    <div class="shortcut-result">Next tab</div>
+                    <div><kbd>TAB</kbd></div>
+                </div>
+                <div class="shortcut">
+                    <div class="shortcut-result">Previous tab</div>
+                    <div><kbd>SHIFT</kbd>+<kbd>TAB</kbd></div>
+                </div>
+                <div class="shortcut">
+                    <div class="shortcut-result">Enters selected</div>
+                    <div><kbd>TAB</kbd>+<kbd>ENTER</kbd></div>
+                </div>
+                <div class="shortcut">
+                    <div class="shortcut-result">Delete</div>
+                    <div><kbd>DELETE</kbd></div>
+                </div>
+                <div class="shortcut">
+                    <div class="shortcut-result">Reset</div>
+                    <div><kbd>SHIFT</kbd>+<kbd>DELETE</kbd></div>
+                </div>
+            </div>
         </div>
 
         <div class="attribution">

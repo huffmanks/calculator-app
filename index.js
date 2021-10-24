@@ -54,7 +54,7 @@ const updateTheme3 = () => {
     document.body.classList.remove(...cls)
 }
 
-// Calc functions
+// Calculator
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement
@@ -132,6 +132,16 @@ class Calculator {
 
     updateDisplay() {
         this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand)
+
+        const errorMessage = document.createElement('div')
+        errorMessage.innerHTML = 'You broke it!! Too many digits'
+        errorMessage.classList.add('error-message')
+
+        if (this.currentOperandTextElement.textContent.length === 21) {
+            this.currentOperandTextElement.appendChild(errorMessage)
+            this.delete()
+        }
+
         if (this.operation != null) {
             this.previousOperandTextElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
         } else {
@@ -140,6 +150,7 @@ class Calculator {
     }
 }
 
+const keysEl = document.querySelectorAll('.key')
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
@@ -147,11 +158,60 @@ const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
-// const outputEl = document.querySelector('#output')
 
-// const calculator = new Calculator(outputEl)
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
+const onMutation = function (mutations) {
+    for (const { addedNodes } of mutations) {
+        for (const node of addedNodes) {
+            if (!node.tagName) continue
+            if (node.classList.contains('error-message')) {
+                keysEl.forEach((keyEl) => {
+                    keyEl.classList.add('falling-keys')
+                    setTimeout(() => {
+                        keyEl.classList.remove('falling-keys')
+                        calculator.clear()
+                        calculator.updateDisplay()
+                    }, 3500)
+                })
+            }
+        }
+    }
+}
+
+const observer = new MutationObserver(onMutation)
+
+observer.observe(currentOperandTextElement, { childList: true, subtree: true })
+
+// Calc with keys
+document.addEventListener('keydown', ({ key, shiftKey }) => {
+    if (!isNaN(key) || key === '.') {
+        calculator.appendNumber(key)
+        calculator.updateDisplay()
+    }
+    if (key === '/' || key === '-' || key === '+') {
+        calculator.chooseOperation(key)
+        calculator.updateDisplay()
+    }
+    if (key === '*') {
+        calculator.chooseOperation('x')
+        calculator.updateDisplay()
+    }
+    if (key === 'Enter') {
+        calculator.compute()
+        calculator.updateDisplay()
+    }
+    if (key === 'Delete') {
+        calculator.delete()
+        calculator.updateDisplay()
+    }
+    if (key === 'Delete' && shiftKey) {
+        calculator.clear()
+        calculator.updateDisplay()
+    }
+})
+
+// Calc with click
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)
@@ -166,17 +226,17 @@ operationButtons.forEach((button) => {
     })
 })
 
-equalsButton.addEventListener('click', (button) => {
+equalsButton.addEventListener('click', () => {
     calculator.compute()
     calculator.updateDisplay()
 })
 
-allClearButton.addEventListener('click', (button) => {
+allClearButton.addEventListener('click', () => {
     calculator.clear()
     calculator.updateDisplay()
 })
 
-deleteButton.addEventListener('click', (button) => {
+deleteButton.addEventListener('click', () => {
     calculator.delete()
     calculator.updateDisplay()
 })

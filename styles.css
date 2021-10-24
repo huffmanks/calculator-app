@@ -97,6 +97,91 @@ h1 {
     font-size: 28px;
 }
 
+.shortcuts-link a {
+    display: inline-block;
+    padding: 7px 7px 5px;
+    background-color: var(--theme-key-equals);
+    border-radius: 5px;
+    color: var(--color-white);
+    font-size: 10px;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.modal-shortcuts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal-shortcuts:target {
+    display: flex;
+}
+
+.modal-body {
+    position: relative;
+    width: 600px;
+    margin: 2rem;
+    padding: 2rem;
+    background-color: var(--color-white);
+    border-radius: 10px;
+}
+
+.modal-body .close a {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 8px 0 0 12px;
+    background-color: var(--theme-key-equals);
+    color: var(--color-white);
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.modal-body h2 {
+    margin-bottom: 1rem;
+    color: var(--theme-key-equals);
+    border-bottom: 3px dashed var(--theme-key-equals);
+}
+
+.shortcut {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.5rem;
+}
+
+.shortcut:nth-of-type(2n + 1) {
+    background-color: #ddd;
+}
+
+.shortcut-result {
+    font-size: 1.5rem;
+}
+
+.shortcut kbd {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.4rem;
+    margin: 0 0.2rem;
+    line-height: 1.5;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+    background-color: #f7f7f7;
+}
+
 .toggle {
     display: flex;
     align-items: flex-end;
@@ -155,6 +240,7 @@ h1 {
     border: none;
     border-radius: 10px;
     outline: none;
+    overflow: hidden;
 }
 
 .previous-operand {
@@ -165,6 +251,11 @@ h1 {
 
 .current-operand {
     font-size: 2.25rem;
+}
+
+.error-message {
+    color: hsl(6, 63%, 50%);
+    font-size: 1.5rem;
 }
 
 .keypad {
@@ -182,6 +273,7 @@ h1 {
     color: var(--theme-color-primary);
     text-align: center;
     font-size: 32px;
+    border: none;
     border-radius: 10px;
     box-shadow: 0 3px var(--theme-key-primary-shadow);
     cursor: pointer;
@@ -190,6 +282,10 @@ h1 {
 
 .key:hover {
     transform: scale(0.95);
+}
+
+.key:focus-visible {
+    outline: 5px solid var(--theme-key-equals);
 }
 
 .span-2 {
@@ -208,8 +304,55 @@ h1 {
     box-shadow: 0 3px var(--theme-key-equals-shadow);
 }
 
-.theme-3 .key-equals {
+.theme-3 .key-equals,
+.theme-3 .shortcuts-link a {
     color: hsl(198, 20%, 13%);
+}
+
+.falling-keys:nth-of-type(odd) {
+    animation: 3.5s falling 1;
+}
+
+.falling-keys:nth-of-type(even) {
+    animation: 3.5s falling2 1;
+}
+
+.falling-keys:nth-of-type(n) {
+    animation-delay: 0.9s;
+}
+
+.falling-keys:nth-of-type(3n) {
+    animation-delay: 1.3s;
+}
+
+.falling-keys:nth-of-type(5n) {
+    animation-delay: 1.7s;
+}
+
+.falling-keys:nth-of-type(7n) {
+    animation-delay: 2.1s;
+}
+
+@keyframes falling {
+    0% {
+        transform: translate3d(0, 0, 1000px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate3d(-350px, -900px, 0) rotate(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes falling2 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(270deg);
+    }
+
+    100% {
+        transform: translate3d(350px, -900px, 0) rotate(0deg);
+        opacity: 0;
+    }
 }
 
 /* Frontend Mentor */
