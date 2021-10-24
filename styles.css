@@ -80,9 +80,8 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 600px;
-    margin: 2rem 1rem;
+    width: 600px;
+    max-width: 90%;
 }
 
 .header {
@@ -175,7 +174,7 @@ h1 {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 0.4rem;
+    padding: 7px 7px 3px;
     margin: 0 0.2rem;
     line-height: 1.5;
     box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
@@ -268,11 +267,11 @@ h1 {
 }
 
 .key {
-    padding: 10px 20px;
+    padding: 5px 0 0;
     background-color: var(--theme-key-primary);
     color: var(--theme-color-primary);
     text-align: center;
-    font-size: 32px;
+    font-size: 28px;
     border: none;
     border-radius: 10px;
     box-shadow: 0 3px var(--theme-key-primary-shadow);
@@ -295,6 +294,7 @@ h1 {
 .key-secondary {
     background-color: var(--theme-key-secondary);
     color: var(--color-white);
+    font-size: 20px;
     box-shadow: 0 3px var(--theme-key-secondary-shadow);
 }
 
@@ -302,6 +302,10 @@ h1 {
     background-color: var(--theme-key-equals);
     color: var(--color-white);
     box-shadow: 0 3px var(--theme-key-equals-shadow);
+}
+
+.key-no-padding {
+    padding: 0;
 }
 
 .theme-3 .key-equals,
@@ -352,6 +356,35 @@ h1 {
     100% {
         transform: translate3d(350px, -900px, 0) rotate(0deg);
         opacity: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .modal-body {
+        padding: 2rem 1rem;
+    }
+
+    .shortcut {
+        flex-direction: column;
+    }
+
+    .shortcut-result {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .shortcut kbd {
+        margin-bottom: 0.5rem;
+        /* font-size: 0.8rem; */
+        line-height: 1;
+    }
+
+    .key {
+        font-size: 20px;
+    }
+
+    .key-secondary {
+        font-size: 16px;
     }
 }
 
