@@ -49,11 +49,11 @@
     --theme-bg-screen: hsl(268, 71%, 12%);
     --theme-bg-keypad: hsl(268, 71%, 12%);
 
-    --theme-key-primary: hsl(268, 47%, 21%);
-    --theme-key-primary-shadow: hsl(290, 70%, 36%);
+    --theme-key-primary: hsl(281, 89%, 26%);
+    --theme-key-primary-shadow: hsl(285, 91%, 52%);
 
-    --theme-key-secondary: hsl(281, 89%, 26%);
-    --theme-key-secondary-shadow: hsl(285, 91%, 52%);
+    --theme-key-secondary: hsl(268, 47%, 21%);
+    --theme-key-secondary-shadow: hsl(290, 70%, 36%);
 
     --theme-key-equals: hsl(176, 100%, 44%);
     --theme-key-equals-shadow: hsl(177, 92%, 70%);
